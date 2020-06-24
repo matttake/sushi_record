@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resource :scores
-  root to: "scores#index"
+  root to: "records#index"
+  resources :records
 
 end
