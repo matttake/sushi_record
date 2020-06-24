@@ -1,1 +1,21 @@
-%p hello world
+.container-fluid
+  .index.row
+    .index__left.col-3
+      .index__left__container
+        .index__left__container__profile
+          .index__left__container__profile__avatar
+            %p img
+          .index__left__container__profile__name
+            %p User Name
+        .index__left__container__menu
+          %ul
+            %li=link_to("グラフ","#")
+            %li=link_to("過去の記録詳細","#")
+            %li=link_to("各種ランキング","#")
+            %li=link_to("サイトの使い方","#")
+            %li=link_to("いざ実践","#")
+        .index__left__container__ranking
+          
+
+        
+    .index__right.col-9

@@ -1,3 +1,55 @@
-// Place all the styles related to the records controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.container{
+  padding: 0;
+  margin: 0;
+}
+
+.header{
+  height: 60px;
+  background-color: blue;
+  &__main{
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+  }
+}
+
+.index{
+  &__left{
+    background-color: #7a7575;
+    height: 100vh;
+    &__container{
+      margin: 10px;
+      height: 100%;
+      &__profile{
+        height: 100px;
+        background-color: white;
+        display: flex;
+        padding: 15px;
+
+        &__avatar{
+          width: 70px;
+          margin-right: 15px;
+          background-color: pink;
+        }
+        &__name{
+          background-color: yellow;
+          line-height: 70px;
+        }
+      }
+      &__menu{
+        margin-top: 15px;
+        background-color: white;
+      }
+      &__ranking{
+        background-color: #fff;
+        padding-top: 15px;
+        height: 300px;
+      }
+    }
+    
+  }
+  &__right{
+    
+  }
+}
