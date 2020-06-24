@@ -51,4 +51,4 @@ production:
   <<: *default
   database: sushi_record_production
   username: sushi_record
-  password: <%= ENV['SUSHI_RECORD_DATABASE_PASSWORD'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
