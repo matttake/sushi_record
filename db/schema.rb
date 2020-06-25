@@ -13,19 +13,18 @@
 ActiveRecord::Schema.define(version: 2020_06_24_023852) do
 
   create_table "courses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "parent_name"
-    t.string "child_name"
+    t.string "parent_name", null: false
+    t.string "child_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "course_id"
-    t.integer "price"
-    t.integer "really_type"
-    t.integer "avarage_type"
-    t.integer "miss_type"
-    t.integer "miss_type_percentage"
+    t.string "course", null: false
+    t.integer "price", null: false
+    t.integer "really_type", null: false
+    t.float "avarage_type", null: false
+    t.float "miss_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
