@@ -63,7 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "haml-rails"
 gem 'rails_12factor', group: :production
 gem "pry-rails"
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'chartkick'
 gem 'groupdate'
