@@ -20,12 +20,11 @@ ActiveRecord::Schema.define(version: 2020_06_24_023852) do
   end
 
   create_table "records", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "course_id"
+    t.string "course", null: false
     t.integer "price", null: false
     t.integer "really_type", null: false
-    t.integer "avarage_type", null: false
-    t.integer "miss_type", null: false
-    t.integer "miss_type_percentage", null: false
+    t.float "avarage_type", null: false
+    t.float "miss_type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

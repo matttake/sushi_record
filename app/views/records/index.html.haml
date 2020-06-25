@@ -19,3 +19,26 @@
 
         
     .index__right.col-9
+      .index__right__graph
+        = area_chart @data.group_by_day(:created_at).sum(:price), width: "800px", height: "300px"
+
+      = form_with(model: @record, local:true) do |form|
+        .index__right__course.col-12
+          %p コース
+          = form.select :course,[["練習：お手軽"],["練習：お勧め"],["練習：高級"],["普通：お手軽"],["普通：普通"],["普通：高級"]], prompt: "コースを選択してください"
+        .index__right__price.col-12
+          %p 金額
+          = form.number_field :price
+        .index__right__price.col-12
+          %p 正しく打ったキーの回数
+          = form.number_field :really_type
+        .index__right__price.col-12
+          %p 平均キータイプ数
+          = form.number_field :avarage_type, step: "0.1"
+        .index__right__price.col-12
+          %p ミスタイプ数
+          = form.number_field :miss_type
+        .index__right__price.col-12
+          %p ミスタイプ数
+          = form.submit "送信"
+        
