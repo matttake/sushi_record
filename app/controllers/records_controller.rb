@@ -5,6 +5,10 @@ class RecordsController < ApplicationController
     @data = Record.all
   end
 
+  def show
+    
+  end
+
   def new
     @record = Record.new
   end
@@ -16,6 +20,10 @@ class RecordsController < ApplicationController
     else
       render :root
     end
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   private

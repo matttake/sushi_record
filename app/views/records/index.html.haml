@@ -10,6 +10,7 @@
               = current_user.email
           .index__left__container__menu
             %ul
+              %li=link_to("マイページ","/records/#{current_user.id}")
               %li=link_to("グラフ","#")
               %li=link_to("過去の記録詳細","#")
               %li=link_to("各種ランキング","#")
