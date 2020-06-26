@@ -27,7 +27,10 @@
         &__avatar{
           width: 70px;
           margin-right: 15px;
-          background-color: pink;
+          .avatar{
+            border: .1px solid red;
+            border-radius: 70px;
+          }
         }
         &__name{
           background-color: yellow;

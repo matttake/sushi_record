@@ -67,3 +67,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'font-awesome-sass', '~> 5.4.1'
 gem 'chartkick'
 gem 'groupdate'
+gem "devise"
+gem 'devise-i18n'
+gem 'devise-i18n-views'
+gem "carrierwave"
