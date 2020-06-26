@@ -28,6 +28,16 @@
     %i (we need your current password to confirm your changes)
     %br/
     = f.password_field :current_password, autocomplete: "current-password"
+  .field
+    = f.label :nickname
+    %em (6 characters maximum)
+    %br/
+    = f.text_field :nickname, autofocus: true, maxlength: "6"
+  .field
+    = f.label :avatar
+    %em アバター画像選択
+    %br/
+    = f.file_field :avatar
   .actions
     = f.submit "Update"
 %h3 Cancel my account
