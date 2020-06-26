@@ -4,7 +4,11 @@
       .index__left__container
         .index__left__container__profile
           .index__left__container__profile__avatar
-            = image_tag current_user.avatar.url, height: '70px', width: '70px', class: 'avatar'
+            - if current_user.avatar.url
+              = image_tag current_user.avatar.url, height: '70px', width: '70px', class: 'avatar'
+            - else
+              = image_tag '/avatar.jpg', height: '70px', width: '70px', class: 'avatar'
+
           .index__left__container__profile__name
             = current_user.nickname
         .index__left__container__menu
@@ -19,7 +23,10 @@
     .index__right.col-9
       .index__left__container__profile
         .index__left__container__profile__avatar
-          = image_tag current_user.avatar.url, height: '70px', width: '70px', class: 'avatar'
+          - if current_user.avatar.url
+            = image_tag current_user.avatar.url, height: '70px', width: '70px', class: 'avatar'
+          - else
+            = image_tag '/avatar.jpg', height: '70px', width: '70px', class: 'avatar'
         .index__left__container__profile__name
           = current_user.nickname
       %p 初回プレイ：
