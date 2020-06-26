@@ -20,17 +20,21 @@
       height: 100%;
       &__profile{
         height: 100px;
-        background-color: white;
+        background-image: url("/profile.jpg");
         display: flex;
         padding: 15px;
 
         &__avatar{
           width: 70px;
           margin-right: 15px;
-          background-color: pink;
+          background-color: #fff;
+          border-radius: 70px;
+          .avatar{
+            border: .1px solid red;
+            border-radius: 70px;
+          }
         }
         &__name{
-          background-color: yellow;
           line-height: 70px;
         }
       }
