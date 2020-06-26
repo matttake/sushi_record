@@ -4,9 +4,9 @@
       .index__left__container
         .index__left__container__profile
           .index__left__container__profile__avatar
-            = image_tag '/avatar.jpg', height: '70px', width: '70px', class: 'avatar'
+            = image_tag current_user.avatar.url, height: '70px', width: '70px', class: 'avatar'
           .index__left__container__profile__name
-            = current_user.email
+            = current_user.nickname
         .index__left__container__menu
           %ul
             %li=link_to("マイページ","/records/#{current_user.id}")
@@ -19,9 +19,11 @@
     .index__right.col-9
       .index__left__container__profile
         .index__left__container__profile__avatar
-          = image_tag '/avatar.jpg', height: '70px', width: '70px', class: 'avatar'
+          = image_tag current_user.avatar.url, height: '70px', width: '70px', class: 'avatar'
         .index__left__container__profile__name
-          = current_user.email
+          = current_user.nickname
       %p 初回プレイ：
       %p 総プレイ回数：
       = link_to("ユーザー情報編集",edit_user_registration_path)
+      %br/
+      = link_to "ログアウト", destroy_user_session_path, method: :delete
