@@ -1,5 +1,5 @@
 class RecordsController < ApplicationController
-  before_action :move_to_index, except: :index
+  before_action :move_to_index, except: [:index, :landing]
   def index
     @record = Record.new
     @data = Record.all
@@ -24,6 +24,9 @@ class RecordsController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  def landing
   end
 
   private

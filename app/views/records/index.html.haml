@@ -1,15 +1,14 @@
 .container-fluid
   .index.row
-    .index__left.col-3
-      .index__left__container
-        - if user_signed_in?
+    - if user_signed_in? 
+      .index__left.col-3
+        .index__left__container
           .index__left__container__profile
             .index__left__container__profile__avatar
               - if current_user.avatar.url
                 = image_tag current_user.avatar.url, height: '70px', width: '70px', class: 'avatar'
               - else
                 = image_tag '/avatar.jpg', height: '70px', width: '70px', class: 'avatar'
-
             .index__left__container__profile__name
               = current_user.nickname
           .index__left__container__menu
@@ -21,20 +20,10 @@
               %li=link_to("サイトの使い方","#")
               %li=link_to("いざ実践","#")
           .index__left__container__ranking
-        - else 
-          .index__left__container__profile
-            .index__left__container__profile__avatar
-              = image_tag '/avatar.jpg', height: '70px', width: '70px', class: 'avatar'
-            .index__left__container__profile__name
-              %p ゲスト
-          .index__left__container__ranking
-          
 
-    - if user_signed_in?    
       .index__right.col-9
         .index__right__graph
           = area_chart @data.group_by_day(:created_at).sum(:price), width: "800px", height: "300px"
-
         = form_with(model: @record, local:true) do |form|
           .index__right__course.col-12
             %p コース
@@ -55,7 +44,15 @@
             %p ミスタイプ数
             = form.submit "送信"
     - else
-      landingPage
-      = link_to "ログイン", new_user_session_path, class: "btn btn-secondary col-12 aa",role:"button"
-      = link_to "新規登録", new_user_registration_path, class: "btn btn-secondary col-12 aa",role:"button"
-        
+      .index__left.col-3
+        .index__left__container
+          .index__left__container__profile
+            .index__left__container__profile__avatar
+              = image_tag '/avatar.jpg', height: '70px', width: '70px', class: 'avatar'
+            .index__left__container__profile__name
+              %p ゲスト
+          .index__left__container__ranking
+      .index__right.col-9
+        = link_to "ログイン", new_user_session_path, class: "btn btn-secondary col-12",role:"button"
+        = link_to "新規登録", new_user_registration_path, class: "btn btn-secondary col-12",role:"button"
+        = link_to "使い方", landing_records_path, class: "btn btn-secondary col-12",role:"button"
