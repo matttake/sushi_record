@@ -1,0 +1,33 @@
+.container-fluid
+  .landing
+    %h1 使い方
+    %hr/
+    .landing__top
+      %p 使い方はとっても簡単！
+      %p タイピングの結果を打ち込むだけ！
+    .landing__reason
+      %h1 なぜ必要？
+      %hr/
+      .landing__reason__block.row
+        .landing__reason__block__left.col-6
+          = image_tag '/fast.png', height: '240', width: '240', class: ''
+        .landing__reason__block__right.col-6
+          %p 成長が目に見えて感じられる！
+      .landing__reason__block.row
+        .landing__reason__block__right.col-6
+          %p 継続していくことで成功体験が得られる！
+        .landing__reason__block__left.col-6
+          = image_tag '/second.png', height: '240', width: '240', class: ''
+      .landing__reason__block.row
+        .landing__reason__block__left.col-6
+          = image_tag '/thard.png', height: '240', width: '240', class: ''
+        .landing__reason__block__right.col-6
+          %p 自分の弱点や特徴が目に見て分かるので目標が立てやすい！
+      .landing__reason__block
+        %h1 さあ、今すぐ始めよう！
+        %hr/
+        .landing__reason__block__btn
+          = link_to "ログイン", new_user_session_path, class: "btn btn-secondary col-12",role:"button"
+          = link_to "新規登録", new_user_registration_path, class: "btn btn-secondary col-12",role:"button"
+          = link_to "戻る", root_path, class: "btn btn-secondary col-12",role:"button"
+
