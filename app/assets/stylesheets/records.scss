@@ -50,17 +50,31 @@
     
   }
   &__right{
-    &__graph{
-      // height: 500px;
-      // background-color: rgb(193, 229, 186);
-      // text-align: center;
-      // line-height: 500px;
-    }
     .btn{
       display: block;
       width: 200px;
       margin: 0 auto;
       margin-top: 30px;
+    }
+    .submit{
+      display: block;
+      margin: 0 auto;
+      margin-top: 50px;
+      width: 180px;
+    }
+    &__graph{
+      margin-top: 100px;
+      #chart-1{
+        margin: 0 auto;
+      }
+    }
+    &__container{
+      display: flex;
+      text-align: center;
+      margin-top: 100px;
+      &__input{
+        width: 20%;
+      }
     }
   }
 }
@@ -104,10 +118,3 @@
   }
 }
 
-
-
-.form{
-  &__course{
-    margin: 0 auto;
-  }
-}

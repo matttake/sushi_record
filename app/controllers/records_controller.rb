@@ -18,7 +18,9 @@ class RecordsController < ApplicationController
     if @record.save
       redirect_to :root
     else
-      render :root
+      redirect_to :root
+      flash[:danger] = "未記入項目があり保存できませんでした。もう一度登録し直してください。"
+      
     end
   end
 
