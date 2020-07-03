@@ -1,8 +1,21 @@
 class RecordsController < ApplicationController
   before_action :move_to_index, except: [:index, :landing]
   def index
-    @record = Record.new
-    @data = Record.all
+    if current_user.present?
+      @record = Record.new
+      if User.where(id: current_user.id, course_chart: "普通：お手軽").present?
+        @data = Record.where(course: "普通：お手軽")
+        @data_title = "普通：お手軽"
+      elsif User.where(id: current_user.id, course_chart: "普通：お勧め").present?
+        @data = Record.where(course: "普通：お勧め")
+        @data_title = "普通：お勧め"
+      elsif User.where(id: current_user.id, course_chart: "普通：高級").present?
+        @data = Record.where(course: "普通：高級")
+        @data_title = "普通：高級"
+      else
+        # @data_none.none
+      end
+    end
   end
 
   def show
@@ -18,7 +31,9 @@ class RecordsController < ApplicationController
     if @record.save
       redirect_to :root
     else
-      render :root
+      redirect_to :root
+      flash[:danger] = "未記入項目があり保存できませんでした。もう一度登録し直してください。"
+      
     end
   end
 
