@@ -63,10 +63,15 @@
       width: 180px;
     }
     &__graph{
-      margin-top: 100px;
+      margin-top: 40px;
+      text-align: center;
       #chart-1{
-        margin: 0 auto;
+        margin: 40px auto 0;
       }
+    }
+    &__lead{
+      text-align: center;
+
     }
     &__container{
       display: flex;
@@ -74,6 +79,10 @@
       margin-top: 100px;
       &__input{
         width: 20%;
+        select{
+          width: 188px;
+          height: 27px;
+        }
       }
     }
   }
@@ -118,3 +127,26 @@
   }
 }
 
+.show{
+  &__profile{
+    height: 100px;
+    background-image: url("/profile.jpg");
+    width: 300px;
+    display: flex;
+    padding: 15px;
+    &__avatar{
+      width: 70px;
+      margin-right: 15px;
+      background-color: #fff;
+      border-radius: 70px;
+      .avatar{
+        border: .1px solid red;
+        border-radius: 70px;
+      }
+    }
+    &__name{
+      line-height: 70px;
+    }
+  }
+
+}

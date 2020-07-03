@@ -1,0 +1,17 @@
+.index__left.col-2
+  .index__left__container
+    .index__left__container__profile
+      .index__left__container__profile__avatar
+        - if current_user.avatar.url
+          = image_tag current_user.avatar.url, height: '70px', width: '70px', class: 'avatar'
+        - else
+          = image_tag '/avatar.jpg', height: '70px', width: '70px', class: 'avatar'
+      .index__left__container__profile__name
+        = current_user.nickname
+    .index__left__container__menu
+      %ul
+        %li=link_to("マイページ","/records/#{current_user.id}")
+        %li=link_to("グラフ","#")
+        %li=link_to("過去の記録詳細","#")
+    .index__left__container__ranking
+

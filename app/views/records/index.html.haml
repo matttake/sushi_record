@@ -1,37 +1,25 @@
 .container-fluid
   .index.row
     - if user_signed_in? 
-      .index__left.col-2
-        .index__left__container
-          .index__left__container__profile
-            .index__left__container__profile__avatar
-              - if current_user.avatar.url
-                = image_tag current_user.avatar.url, height: '70px', width: '70px', class: 'avatar'
-              - else
-                = image_tag '/avatar.jpg', height: '70px', width: '70px', class: 'avatar'
-            .index__left__container__profile__name
-              = current_user.nickname
-          .index__left__container__menu
-            %ul
-              %li=link_to("マイページ","/records/#{current_user.id}")
-              %li=link_to("グラフ","#")
-              %li=link_to("過去の記録詳細","#")
-              -# %li=link_to("各種ランキング","#")
-              -# %li=link_to("サイトの使い方","#")
-              -# %li=link_to("いざ実践","#")
-          .index__left__container__ranking
-
-
+      = render "index-left"
+      
       .index__right.col-10
         = render "layouts/flash"
-        .index__right__graph
-          = area_chart @data.group_by_day(:created_at).sum(:price), width: "800px", height: "300px"
+        - if @data
+          .index__right__graph
+            %p= "コース[#{@data_title}]"
+            = line_chart @data.group_by_day(:created_at, format: "%y/%m/%d", series: false,).average(:price), messages: {empty: "[#{@data_title}]は未実施のコースです。今すぐ始めよう！"}, width: "90%", height: "350px", xtitle: "実施日", ytitle: "日毎の平均点数", curve: false
+        - else
+          .index__right__lead
+            = image_tag '/graph.png', height: '350px', width: '50%'
+            .index__right__lead__link
+              = link_to( "表示したいグラフのコースを選択しよう！", edit_user_registration_path)
 
         = form_with(model: @record, local:true) do |form|
           .index__right__container
             .index__right__container__input
               %p コース
-              = form.select :course,[["練習：お手軽"],["練習：お勧め"],["練習：高級"],["普通：お手軽"],["普通：普通"],["普通：高級"]], prompt: "コース選択"
+              = form.select :course,[["普通：お手軽"],["普通：お勧め"],["普通：高級"]], prompt: "コース選択"
             .index__right__container__input
               %p 金額
               = form.number_field :price

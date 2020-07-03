@@ -38,6 +38,14 @@
     %em アバター画像選択
     %br/
     = f.file_field :avatar
+
+  .field
+    = f.label :course_chart
+    %em TOPページに表示するグラフのコースを選んでください
+    %br/
+    = f.select :course_chart,[["普通：お手軽"],["普通：お勧め"],["普通：高級"]], prompt: "コース選択"
+
+
   .actions
     = f.submit "Update"
 %h3 Cancel my account

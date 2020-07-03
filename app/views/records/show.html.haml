@@ -1,36 +1,22 @@
 .container-fluid
   .index.row
-    .index__left.col-3
-      .index__left__container
-        .index__left__container__profile
-          .index__left__container__profile__avatar
-            - if current_user.avatar.url
-              = image_tag current_user.avatar.url, height: '70px', width: '70px', class: 'avatar'
-            - else
-              = image_tag '/avatar.jpg', height: '70px', width: '70px', class: 'avatar'
+    = render "index-left"
 
-          .index__left__container__profile__name
-            = current_user.nickname
-        .index__left__container__menu
-          %ul
-            %li=link_to("マイページ","/records/#{current_user.id}")
-            %li=link_to("グラフ","#")
-            %li=link_to("過去の記録詳細","#")
-            %li=link_to("各種ランキング","#")
-            %li=link_to("サイトの使い方","#")
-            %li=link_to("いざ実践","#")
-        .index__left__container__ranking
-    .index__right.col-9
-      .index__left__container__profile
-        .index__left__container__profile__avatar
+    .show.col-10
+      .show__profile
+        .show__profile__avatar
           - if current_user.avatar.url
             = image_tag current_user.avatar.url, height: '70px', width: '70px', class: 'avatar'
           - else
             = image_tag '/avatar.jpg', height: '70px', width: '70px', class: 'avatar'
-        .index__left__container__profile__name
+        .show__profile__name
           = current_user.nickname
-      %p 初回プレイ：
-      %p 総プレイ回数：
-      = link_to("ユーザー情報編集",edit_user_registration_path)
-      %br/
-      = link_to "ログアウト", destroy_user_session_path, method: :delete
+
+      .show__contents
+        %p 初回プレイ：
+        %p 総プレイ回数：
+        = link_to "ユーザー情報編集", edit_user_registration_path
+        %br/
+        = link_to "ログアウト", destroy_user_session_path, method: :delete
+        %br/
+        = link_to "TOPへ戻る", root_path
