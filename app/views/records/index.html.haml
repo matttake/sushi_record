@@ -8,7 +8,7 @@
         - if @data
           .index__right__graph
             %p= "コース[#{@data_title}]"
-            = line_chart @data.group_by_day(:created_at, format: "%y/%m/%d", series: false,).average(:price), messages: {empty: "[#{@data_title}]は未実施のコースです。今すぐ始めよう！"}, width: "90%", height: "350px", xtitle: "実施日", ytitle: "日毎の平均点数", curve: false
+            = line_chart @data.group_by_day(:created_at, format: "%y/%m/%d", series: false,).average(:price), messages: {empty: "[#{@data_title}]は未実施のコースです。今すぐ始めよう！"}, width: "90%", height: "350px", xtitle: "実施日", ytitle: "平均点数", curve: false
         - else
           .index__right__lead
             = image_tag '/graph.png', height: '350px', width: '50%'

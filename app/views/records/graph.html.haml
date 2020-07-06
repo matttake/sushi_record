@@ -1,0 +1,33 @@
+.container-fluid
+  .graph.row
+    = render "index-left"
+    .graph__right.col-10
+      - if @data
+        .graph__right__contents
+          .graph__right__contents__title
+            %p= "コース[#{@data_title}]"
+          .graph__right__contents__collum
+
+            %p [平均点数]
+            = line_chart @data.group_by_day(:created_at, format: "%y/%m/%d", series: false,).average(:price), messages: {empty: "[#{@data_title}]は未実施のコースです。今すぐ始めよう！"}, width: "90%", height: "350px", ytitle: "円", curve: false
+            %hr/
+
+          .graph__right__contents__collum
+            %p [正しく打った回数]
+            = line_chart @data.group_by_day(:created_at, format: "%y/%m/%d", series: false,).average(:really_type), messages: {empty: "[#{@data_title}]は未実施のコースです。今すぐ始めよう！"}, width: "90%", height: "350px", ytitle: "回", curve: false
+            %hr/
+
+          .graph__right__contents__collum
+            %p [平均タイプ数]
+            = line_chart @data.group_by_day(:created_at, format: "%y/%m/%d", series: false,).average(:avarage_type), messages: {empty: "[#{@data_title}]は未実施のコースです。今すぐ始めよう！"}, width: "90%", height: "350px", ytitle: "回/秒", curve: false
+            %hr/
+
+          .graph__right__contents__collum
+            %p [ミスタイプ数]
+            = line_chart @data.group_by_day(:created_at, format: "%y/%m/%d", series: false,).average(:miss_type), messages: {empty: "[#{@data_title}]は未実施のコースです。今すぐ始めよう！"}, width: "90%", height: "350px", ytitle: "回", curve: false
+      - else
+        .graph__right__lead
+          = image_tag '/graph.png', height: '350px', width: '50%'
+          .graph__right__lead__link
+            = link_to "表示したいグラフのコースを選択しよう！", edit_user_registration_path
+

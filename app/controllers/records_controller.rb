@@ -3,18 +3,7 @@ class RecordsController < ApplicationController
   def index
     if current_user.present?
       @record = Record.new
-      if User.where(id: current_user.id, course_chart: "普通：お手軽").present?
-        @data = Record.where(course: "普通：お手軽")
-        @data_title = "普通：お手軽"
-      elsif User.where(id: current_user.id, course_chart: "普通：お勧め").present?
-        @data = Record.where(course: "普通：お勧め")
-        @data_title = "普通：お勧め"
-      elsif User.where(id: current_user.id, course_chart: "普通：高級").present?
-        @data = Record.where(course: "普通：高級")
-        @data_title = "普通：高級"
-      else
-        # @data_none.none
-      end
+      graph_data
     end
   end
 
@@ -44,6 +33,10 @@ class RecordsController < ApplicationController
   def landing
   end
 
+  def graph
+    graph_data
+  end
+
   private
   def record_params
     params.require(:record).permit(:course, :price, :really_type, :avarage_type, :miss_type).merge(user_id: current_user.id)
@@ -51,5 +44,19 @@ class RecordsController < ApplicationController
 
   def move_to_index
     redirect_to action: :index unless user_signed_in?
+  end
+
+  def graph_data
+    if User.where(id: current_user.id, course_chart: "普通：お手軽").present?
+      @data = Record.where(course: "普通：お手軽")
+      @data_title = "普通：お手軽"
+    elsif User.where(id: current_user.id, course_chart: "普通：お勧め").present?
+      @data = Record.where(course: "普通：お勧め")
+      @data_title = "普通：お勧め"
+    elsif User.where(id: current_user.id, course_chart: "普通：高級").present?
+      @data = Record.where(course: "普通：高級")
+      @data_title = "普通：高級"
+    else
+    end
   end
 end
