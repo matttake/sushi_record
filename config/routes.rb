@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :records do
     collection do
       get "landing"
+      get "graph"
     end
   end
 end
