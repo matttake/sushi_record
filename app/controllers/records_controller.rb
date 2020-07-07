@@ -50,12 +50,15 @@ class RecordsController < ApplicationController
     if User.where(id: current_user.id, course_chart: "普通：お手軽").present?
       @data = Record.where(course: "普通：お手軽")
       @data_title = "普通：お手軽"
+      @target_scoure = "3000円"
     elsif User.where(id: current_user.id, course_chart: "普通：お勧め").present?
       @data = Record.where(course: "普通：お勧め")
       @data_title = "普通：お勧め"
+      @target_scoure = "5000円"
     elsif User.where(id: current_user.id, course_chart: "普通：高級").present?
       @data = Record.where(course: "普通：高級")
       @data_title = "普通：高級"
+      @target_scoure = "10000円"
     else
     end
   end

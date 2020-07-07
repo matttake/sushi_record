@@ -5,7 +5,8 @@
       - if @data
         .graph__right__contents
           .graph__right__contents__title
-            %p= "コース[#{@data_title}]"
+            %h1= "コース[#{@data_title}]"
+            %h5= "目標点数：#{@target_scoure}"
           .graph__right__contents__collum
 
             %p [平均点数]
