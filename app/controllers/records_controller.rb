@@ -8,7 +8,7 @@ class RecordsController < ApplicationController
   end
 
   def show
-    
+    graph_data
   end
 
   def new
