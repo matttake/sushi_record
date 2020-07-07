@@ -10,9 +10,9 @@
         = current_user.nickname
     .index__left__container__menu
       %ul
-        %li=link_to("マイページ","/records/#{current_user.id}")
+        %li=link_to "マイページ","/records/#{current_user.id}"
         %li= link_to "グラフ", graph_records_path
-        %li=link_to("過去の記録詳細","#")
+        -# %li=link_to("過去の記録詳細","#")
         - unless @record.present?
           %li= link_to "TOP", root_path
 
