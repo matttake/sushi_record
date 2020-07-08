@@ -1,24 +1,26 @@
-# README
+# Sushi-Record
+  "Sushi-record" is learning record application of free typing application "寿司打".
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# DEMO
+[![Image from Gyazo](https://i.gyazo.com/6dbbba8ae49b0fc8dd42a0780367b75e.png)](https://gyazo.com/6dbbba8ae49b0fc8dd42a0780367b75e)
 
-Things you may want to cover:
+# Features
+  There is not the difficult operation and just drives the result that I played.
+  A graph shows the result that I recorded and knows growth remarkably.
+  I record it each and can manage all courses.
+  I am updating a function more at any time.
 
-* Ruby version
+# Requirement
 
-* System dependencies
+* gem 'chartkick'
+* gem 'groupdate'
 
-* Configuration
+# Note
+  For the application for the typing exercise, I do not cope with a flexible design.
 
-* Database creation
+# Author
 
-* Database initialization
+* tsukamoto yuuto
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# License
+  "Action Learning" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
