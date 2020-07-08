@@ -5,10 +5,10 @@
 [![Image from Gyazo](https://i.gyazo.com/6dbbba8ae49b0fc8dd42a0780367b75e.png)](https://gyazo.com/6dbbba8ae49b0fc8dd42a0780367b75e)
 
 # Features
-  There is not the difficult operation and just drives the result that I played.
-  A graph shows the result that I recorded and knows growth remarkably.
-  I record it each and can manage all courses.
-  I am updating a function more at any time.
+* There is not the difficult operation and just drives the result that I played.
+* A graph shows the result that I recorded and knows growth remarkably.
+* I record it each and can manage all courses.
+* I am updating a function more at any time.
 
 # Requirement
 
