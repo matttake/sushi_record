@@ -1,54 +1,52 @@
-%h2
-  Edit #{resource_name.to_s.humanize}
-= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
-    %div
-      Currently waiting confirmation for: #{resource.unconfirmed_email}
-  .field
-    = f.label :password
-    %i (leave blank if you don't want to change it)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-    - if @minimum_password_length
-      %br/
-      %em
-        = @minimum_password_length
-        characters minimum
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :current_password
-    %i (we need your current password to confirm your changes)
-    %br/
-    = f.password_field :current_password, autocomplete: "current-password"
-  .field
-    = f.label :nickname
-    %em (6 characters maximum)
-    %br/
-    = f.text_field :nickname, autofocus: true, maxlength: "6"
-  .field
-    = f.label :avatar
-    %em アバター画像選択
-    %br/
-    = f.file_field :avatar
+.card.col-sm-6.mx-auto.mt-5
+  .card-body
+    %h2.mt-1.mb-3 ユーザー情報編集
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      .field
+        = f.label :email
+        %br/
+        = f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control"
+      - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+        %div
+          Currently waiting confirmation for: #{resource.unconfirmed_email}
+      .field
+        = f.label :password
+        %i を変更する
+        %br/
+        = f.password_field :password, autocomplete: "new-password", class:"form-control"
+        - if @minimum_password_length
+          %em
+            (最大#{@minimum_password_length}文字)
+            
+      .field
+        = f.label :password_confirmation
+        %br/
+        = f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control"
+      .field
+        = f.label :current_password
+        %span (必須)
+        %br/
+        = f.password_field :current_password, autocomplete: "current-password", class:"form-control"
+      .field
+        = f.label :ニックネーム
+        %br/
+        = f.text_field :nickname, autofocus: true, maxlength: "6", class:"form-control"
+        %em
+          (最大#{@minimum_password_length}文字)
 
-  .field
-    = f.label :course_chart
-    %em TOPページに表示するグラフのコースを選んでください
+      .field
+        = f.label :アバター画像選択
+        %br/
+        = f.file_field :avatar
+
+      .field
+        = f.label :表示するグラフのコースを選んでください
+        %br/
+        = f.select :course_chart, [["普通：お手軽"],["普通：お勧め"],["普通：高級"]], {},{prompt: "コース選択", class: "form-control"}
+
+
+      .field
+        = f.submit "更新", :class => "btn btn-primary btn-block"
     %br/
-    = f.select :course_chart,[["普通：お手軽"],["普通：お勧め"],["普通：高級"]], prompt: "コース選択"
-
-
-  .actions
-    = f.submit "Update"
-%h3 Cancel my account
-%p
-  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
-= link_to "Back", :back
+    = link_to "戻る", :root
